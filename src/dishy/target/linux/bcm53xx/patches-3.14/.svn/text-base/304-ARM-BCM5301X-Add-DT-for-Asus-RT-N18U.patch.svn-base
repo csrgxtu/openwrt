@@ -1,0 +1,120 @@
+From 3f3217b834f59c584f1a213c039349b4a3bb44d3 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>
+Date: Thu, 9 Oct 2014 18:16:26 +0200
+Subject: [PATCH] ARM: BCM5301X: Add DT for Asus RT-N18U
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Rafał Miłecki <zajec5@gmail.com>
+---
+ arch/arm/boot/dts/Makefile                  |  3 ++-
+ arch/arm/boot/dts/bcm47081-asus-rt-n18u.dts | 35 +++++++++++++++++++++++++++++
+ arch/arm/boot/dts/bcm47081.dtsi             | 26 +++++++++++++++++++++
+ arch/arm/mach-bcm/bcm_5301x.c               |  1 +
+ 4 files changed, 64 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm/boot/dts/bcm47081-asus-rt-n18u.dts
+ create mode 100644 arch/arm/boot/dts/bcm47081.dtsi
+
+diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
+index 17c717b..330e0e0 100644
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -53,7 +53,8 @@ dtb-$(CONFIG_ARCH_BCM2835) += bcm2835-rpi-b.dtb
+ dtb-$(CONFIG_ARCH_BCM_5301X) += \
+ 	bcm4708-buffalo-wzr-1750dhp.dtb \
+ 	bcm4708-netgear-r6250.dtb \
+-	bcm4708-netgear-r6300-v2.dtb
++	bcm4708-netgear-r6300-v2.dtb \
++	bcm47081-asus-rt-n18u.dtb
+ dtb-$(CONFIG_ARCH_BERLIN) += \
+ 	berlin2-sony-nsz-gs7.dtb	\
+ 	berlin2cd-google-chromecast.dtb
+diff --git a/arch/arm/boot/dts/bcm47081-asus-rt-n18u.dts b/arch/arm/boot/dts/bcm47081-asus-rt-n18u.dts
+new file mode 100644
+index 0000000..e6347a9
+--- /dev/null
++++ b/arch/arm/boot/dts/bcm47081-asus-rt-n18u.dts
+@@ -0,0 +1,35 @@
++/*
++ * Broadcom BCM470X / BCM5301X arm platform code.
++ * DTS for Asus RT-N18U
++ *
++ * Copyright © 2014 Rafał Miłecki <zajec5@gmail.com>
++ *
++ * Licensed under the GNU/GPL. See COPYING for details.
++ */
++
++/dts-v1/;
++
++#include "bcm47081.dtsi"
++
++/ {
++	compatible = "asus,rt-n18u", "brcm,bcm47081";
++	model = "Asus RT-N18U (BCM47081)";
++
++	chosen {
++		bootargs = "console=ttyS0,115200";
++	};
++
++	memory {
++		reg = <0x00000000 0x08000000>;
++	};
++
++	chipcommonA {
++		uart0: serial@0300 {
++			status = "okay";
++		};
++
++		uart1: serial@0400 {
++			status = "okay";
++		};
++	};
++};
+diff --git a/arch/arm/boot/dts/bcm47081.dtsi b/arch/arm/boot/dts/bcm47081.dtsi
+new file mode 100644
+index 0000000..f720012
+--- /dev/null
++++ b/arch/arm/boot/dts/bcm47081.dtsi
+@@ -0,0 +1,26 @@
++/*
++ * Broadcom BCM470X / BCM5301X ARM platform code.
++ * DTS for BCM47081 SoC.
++ *
++ * Copyright © 2014 Rafał Miłecki <zajec5@gmail.com>
++ *
++ * Licensed under the GNU/GPL. See COPYING for details.
++ */
++
++#include "bcm5301x.dtsi"
++
++/ {
++	compatible = "brcm,bcm47081";
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu@0 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a9";
++			next-level-cache = <&L2>;
++			reg = <0x0>;
++		};
++	};
++};
+diff --git a/arch/arm/mach-bcm/bcm_5301x.c b/arch/arm/mach-bcm/bcm_5301x.c
+index b0a6da9..de29646 100644
+--- a/arch/arm/mach-bcm/bcm_5301x.c
++++ b/arch/arm/mach-bcm/bcm_5301x.c
+@@ -81,6 +81,7 @@ static void bcm5301x_restart(enum reboot_mode mode, const char *cmd)
+ 
+ static const char __initconst *bcm5301x_dt_compat[] = {
+ 	"brcm,bcm4708",
++	"brcm,bcm47081",
+ 	NULL,
+ };
+ 
+-- 
+1.8.4.5
+
