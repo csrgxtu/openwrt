@@ -1,0 +1,9 @@
+How to config WPA2 PSK on openwrt
+After successfully installed the openwrt on the TP-LINK WR720N, you
+need to enable the wireless network to let the camera--PapaGou to
+connect to the wireless router.
+
+uci set wireless.@wifi-iface[0].encryption=psk2
+uci set wireless.@wifi-iface[0].key="your_password"
+uci commit wireless
+wifi

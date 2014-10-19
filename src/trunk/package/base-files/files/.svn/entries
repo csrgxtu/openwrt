@@ -1,0 +1,43 @@
+10
+
+dir
+42956
+svn://svn.openwrt.org/openwrt/trunk/package/base-files/files
+svn://svn.openwrt.org/openwrt
+
+
+
+2014-10-15T17:55:13.091781Z
+42926
+blogic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3c298f89-4303-0410-b956-a3cf2f4a3e73
+
+lib
+dir
+
+bin
+dir
+
+etc
+dir
+
+sbin
+dir
+
+rom
+dir
+

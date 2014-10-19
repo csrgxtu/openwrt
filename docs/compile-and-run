@@ -1,0 +1,41 @@
+How to compile and write programe for TP-LINK WR720N
+I have done this before just for testing, and I did not write the
+thing up, so now I am kind of forgetten how to do the work exactly.
+so, here I am gonna to do it again to show you how to play with
+openwrt and how to program on it.
+
+Prepare
+  1, To programe or comiple openwrt you need a Linux operating system
+with GCC and other tools installed, here I am using Ubuntu 12.04,
+roughly all Linux distributions should work the same. but for
+windows, It is way more complicated, so here dont use Windows
+operating system.
+  Ubuntu 12.04 X86_64
+  sudo apt-get install build-essential subversion git-core
+  libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc
+  libxml-parser-perl
+  sudo apt-get install g++ libncurses5-dev zlib1g-dev bison flex 
+  unzip autoconf gawk make gettext gcc binutils patch bzip2 libz-dev
+  asciidoc subversion sphinxsearch libtool sphinx-common
+
+
+  2, The upper paragraph tells you how to prepare the compile
+environment, here you need to get the source code that supports
+your router hardware, for example, my is TP-LINK WR720N, so I need
+get the most recent source code that has built-in support for WR720N.
+  svn checkout svn://svn.openwrt.org/openwrt/trunk/
+
+  3, Update and Install the feeds of the extra packeges into the
+source code.
+  ./scripts/feeds update -a
+  ./scripts/feeds install -a
+
+  4, Everything is ok, now compile the source code and generate the
+route os and development SDK.
+  make defconfig (this check the dependencies)
+  make menuconfig (config to adapt to your hardware and chose the
+  packeges you want)
+  make -j 4 V=s (-j is jobs, if your CPU is 4 core, then -j 4 and
+  V is verbose)
+  
+
