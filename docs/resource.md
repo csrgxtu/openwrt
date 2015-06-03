@@ -13,3 +13,5 @@
 [TP-link WR703N, OpenWrt, Mentohust](http://www.cnblogs.com/moondark/archive/2013/06/13/3133725.html)
 
 [WR703N刷Openwrt+Mentohust实现锐捷认证](http://heiybb.com/wr703n-openwrt-mentohust-wifi.hf)
+
+[How do I install and run a TFTP server?](http://askubuntu.com/questions/201505/how-do-i-install-and-run-a-tftp-server)
