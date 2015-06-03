@@ -9,3 +9,7 @@
 [Tutorial of compiling OpenWRT](http://linksprite.com/wiki/index.php5?title=Tutorial_of_compiling_OpenWRT#Prepare_openwrt_source_files)
 
 [WR703N OpenWrt 配置流程](https://gist.github.com/ninehills/2627163)
+
+[TP-link WR703N, OpenWrt, Mentohust](http://www.cnblogs.com/moondark/archive/2013/06/13/3133725.html)
+
+[WR703N刷Openwrt+Mentohust实现锐捷认证](http://heiybb.com/wr703n-openwrt-mentohust-wifi.hf)
