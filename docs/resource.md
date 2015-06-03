@@ -15,3 +15,5 @@
 [WR703N刷Openwrt+Mentohust实现锐捷认证](http://heiybb.com/wr703n-openwrt-mentohust-wifi.hf)
 
 [How do I install and run a TFTP server?](http://askubuntu.com/questions/201505/how-do-i-install-and-run-a-tftp-server)
+
+[Flashing TP-Link TL-WR703N v1.7 to OpenWrt](http://www.shadowandy.net/2015/03/flashing-tp-link-tl-wr703n-v1-7-to-openwrt.htm)
